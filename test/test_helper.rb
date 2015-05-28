@@ -39,7 +39,7 @@ require 'sidekiq/testing'
 # require "minitest/rails/capybara"
 
 if ENV['CHROMOTYPE_TEST_HOME'].blank?
-  MiniTest::Unit.after_tests do
+  Minitest.after_run do
     FileUtils.remove_entry_secure TESTING_HOME
   end
 end
