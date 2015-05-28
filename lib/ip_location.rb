@@ -7,6 +7,8 @@ class IpLocation
 
   # Yeah, I'm going to geek hell for the xpaths, but it's just to be nice to the user, so it's OK.
   def self.latitude_maxmind
+    return nil # no longer gives latitude information
+
     Timeout::timeout(5) do
       doc = Nokogiri::HTML(open('http://www.maxmind.com/app/locate_my_ip'))
       doc.xpath('//td[contains(text(), "Latitude")]/following-sibling::td').text.split("/").first.strip
@@ -15,16 +17,16 @@ class IpLocation
 
   def self.latitude_geoiptool
     Timeout::timeout(5) do
-      doc = Nokogiri::HTML(open('http://www.geoiptool.com/en/'))
-      doc.xpath('//span[text()="Latitude:"]/../../td[2]').text
+      doc = Nokogiri::HTML(open('https://geoiptool.com/en/'))
+      doc.xpath('//span[text()="Latitude:"]/../span[2]').text
     end
   end
 
   def self.latitude
-    latitude_maxmind
+    latitude_geoiptool
   rescue StandardError
     begin
-      latitude_geoiptool
+      latitude_maxmind
     rescue StandardError
       nil
     end
