@@ -51,6 +51,7 @@ DatabaseCleaner.strategy = :truncation
 class MiniTest::Spec
   before do
     DatabaseCleaner.start
+    GeoNamesAPI.stubs(:username).returns('rickyp999')
   end
   after do
     DatabaseCleaner.clean
