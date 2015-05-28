@@ -39,7 +39,7 @@ require 'sidekiq/testing'
 # require "minitest/rails/capybara"
 
 if ENV['CHROMOTYPE_TEST_HOME'].blank?
-  MiniTest::Unit.after_tests do
+  Minitest.after_run do
     FileUtils.remove_entry_secure TESTING_HOME
   end
 end
@@ -51,6 +51,7 @@ DatabaseCleaner.strategy = :truncation
 class MiniTest::Spec
   before do
     DatabaseCleaner.start
+    GeoNamesAPI.stubs(:username).returns('rickyp999')
   end
   after do
     DatabaseCleaner.clean
