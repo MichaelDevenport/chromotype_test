@@ -71,6 +71,7 @@ gem 'dalli'
 gem 'sidekiq'
 gem 'foreman'
 gem 'druthers'
+gem 'graphicsmagick'
 
 group :development do
   # TODO: seemed cool:  gem "rails-erd"
