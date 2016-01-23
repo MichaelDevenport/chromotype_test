@@ -10,7 +10,7 @@ mysql: &mysql
 
 postgresql: &postgresql
   adapter: postgresql
-  username: postgres
+  username: ASH1
   password:
   database: chromotype_<%= Rails.env %>
   min_messages: ERROR
