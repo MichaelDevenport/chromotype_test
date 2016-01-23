@@ -1,4 +1,4 @@
-# Chromotype
+# Chromotype_clone
 [![Build Status](https://travis-ci.org/mceachen/chromotype.png?branch=master)](https://travis-ci.org/mceachen/chromotype)
 [![Code Climate](https://codeclimate.com/github/mceachen/chromotype.png)](https://codeclimate.com/github/mceachen/chromotype)
 
